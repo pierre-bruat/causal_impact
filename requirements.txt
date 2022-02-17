@@ -6,3 +6,4 @@ times
 numpy
 tfcausalimpact
 matplotlib
+CausalImpact
