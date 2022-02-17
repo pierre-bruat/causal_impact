@@ -1,18 +1,7 @@
 import streamlit as st
 import pandas as pd
-from collections import defaultdict
-import datetime
-from dateutil import relativedelta
-from date_manip import date_to_str 
-import causal_impact_def
-import advertools as adv
-import searchconsole
-import os
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 from causalimpact import CausalImpact
-from PIL import Image
 
 
 
@@ -74,7 +63,7 @@ def perform_test_analysis(df, kpi='impressions'):
 
 @st.cache
 
-#st.title("Causal impact launcher")
+st.title("Causal impact launcher")
 with st.expander("settings"):
 	form = st.form(key='my-form')
 	comments = comments.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
