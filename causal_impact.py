@@ -58,6 +58,8 @@ def compute_causal_impact(pivot_df):
     print(ci.summary())
     print(ci.summary(output='report'))
     ci.plot()
+    img = ci.savefig("causal_impact.png")
+    return img
     
     
 def perform_test_analysis(df, kpi='Clicks'):
@@ -80,7 +82,7 @@ with st.expander("settings"):
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
 		final = perform_test_analysis(df, kpi=kpi)
-		st.write(final.summary('report'))
+		st.write(img)
 
 
 
