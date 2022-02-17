@@ -1,10 +1,8 @@
 import pandas as pd
-from gsc_by_url import gsc_by_url_3
 from collections import defaultdict
 import datetime
 from dateutil import relativedelta
 from date_manip import date_to_str 
-from oauth import authorize_creds, execute_request
 import causal_impact_def
 import advertools as adv
 import searchconsole
@@ -14,6 +12,7 @@ import numpy as np
 import pandas as pd
 from causalimpact import CausalImpact
 from PIL import Image
+import streamlit as st
 
 
 
