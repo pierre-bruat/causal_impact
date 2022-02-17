@@ -78,7 +78,7 @@ with st.expander("settings"):
 	submit = form.form_submit_button('Submit')
 	if submit:
 		if uploaded_file is not None:
-			df = pd.read_xlsx(uploaded_file)
+			df = pd.read_excel(uploaded_file)
 			st.write(df)
 		#df = input_to_df(uploaded_file)
 		#df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
