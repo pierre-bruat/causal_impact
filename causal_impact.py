@@ -71,7 +71,6 @@ st.title("Causal impact launcher")
 with st.expander("settings"):
 	form = st.form(key='my-form')
 	st.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
-#image = Image.open(')
 	kpi = form.selectbox("KPI",("Clicks","Impressions","CTR","Position"))
 	MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
 	uploaded_file = form.file_uploader("Upload your XLSX file")
@@ -81,11 +80,12 @@ with st.expander("settings"):
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
 		cc = plot_raw_curves(df, kpi)
-		st.write(cc)
     	pivot_df = plot_diff_curve(df, kpi)
-    	st.write(pivot_df)
     	final = compute_causal_impact(pivot_df)	
+    	st.write(cc)
+    	st.write(pivot_df)
     	st.write(final)	
+
 
 
 
