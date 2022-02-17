@@ -60,7 +60,7 @@ def compute_causal_impact(pivot_df):
     ci.plot()
     
     
-def perform_test_analysis(df, kpi='impressions'):
+def perform_test_analysis(df, kpi='Clicks'):
     plot_raw_curves(df, kpi)
     pivot_df = plot_diff_curve(df, kpi)
     compute_causal_impact(pivot_df)
@@ -79,7 +79,7 @@ with st.expander("settings"):
 		df = pd.read_csv(uploaded_file, sep=";")
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
-		final = perform_test_analysis(df,kpi=Clicks)
+		final = perform_test_analysis(df, kpi="Clicks")
 		st.write(final)
 
 
