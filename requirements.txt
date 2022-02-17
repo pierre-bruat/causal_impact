@@ -5,3 +5,4 @@ requests
 times
 numpy
 tfcausalimpact
+matplotlib
