@@ -57,7 +57,7 @@ def compute_causal_impact(pivot_df):
     ci = CausalImpact(pivot_df[["difference"]].reset_index(drop=True), pre_period, post_period)
     print(ci.summary())
     print(ci.summary(output='report'))
-    fig = ci.plot()
+    ci.plot()
 
     
     
@@ -80,7 +80,9 @@ with st.expander("settings"):
 		df = pd.read_csv(uploaded_file, sep=";")
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
-		final = perform_test_analysis(df, kpi=kpi)
+		plot_raw_curves(df, kpi)
+		pivot_df = plot_diff_curve(df, kpi)
+		fig = compute_causal_impact(pivot_df)
 		st.pyplot(fig)
 
 
