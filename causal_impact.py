@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from causalimpact import CausalImpact
 
+@st.cache
 
 
 def plot_raw_curves(df, kpi):
@@ -61,7 +62,6 @@ def perform_test_analysis(df, kpi='impressions'):
     compute_causal_impact(pivot_df)
 
 
-@st.cache
 
 st.title("Causal impact launcher")
 with st.expander("settings"):
