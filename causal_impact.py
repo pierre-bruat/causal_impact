@@ -79,12 +79,9 @@ with st.expander("settings"):
 		df = pd.read_csv(uploaded_file, sep=";")
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
-		cc = plot_raw_curves(df, kpi)
-		pivot_df = plot_diff_curve(df, kpi)
-		final = compute_causal_impact(pivot_df)	
-		st.write(cc)
-		st.write(pivot_df)
+		final = perform_test_analysis(df,kpi=Clicks)
 		st.write(final)
+
 
 
 
