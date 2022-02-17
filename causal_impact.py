@@ -66,7 +66,7 @@ def perform_test_analysis(df, kpi='impressions'):
 st.title("Causal impact launcher")
 with st.expander("settings"):
 	form = st.form(key='my-form')
-	comments = comments.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
+	comments.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
 #image = Image.open(')
 	kpi = form.selectbox("KPI",("Clicks","Impressions","CTR","Position"))
 	MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
