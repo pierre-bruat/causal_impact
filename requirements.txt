@@ -4,4 +4,4 @@ bs4
 requests
 times
 numpy
-causal_impact_def
+tfcausalimpact
