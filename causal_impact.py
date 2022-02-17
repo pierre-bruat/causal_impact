@@ -77,12 +77,11 @@ with st.expander("settings"):
 	uploaded_file = form.file_uploader("Upload your XLSX file")
 	submit = form.form_submit_button('Submit')
 	if submit:
-		if uploaded_file is not None:
-			df = pd.read_csv(uploaded_file, sep=";")
-	df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
-	df.rename(columns={"Date":"date"},inplace=True)
-	causal_impact = perform_test_analysis(df, kpi)
-	st.write(causal_impact)
+		df = pd.read_csv(uploaded_file, sep=";")
+		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
+		df.rename(columns={"Date":"date"},inplace=True)
+		causal_impact = perform_test_analysis(df, kpi)
+		st.write(causal_impact)
 
 
 
