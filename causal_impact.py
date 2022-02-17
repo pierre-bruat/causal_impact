@@ -80,8 +80,7 @@ with st.expander("settings"):
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
 		final = perform_test_analysis(df, kpi=kpi)
-		st.write(final)
-
+		st.write(impact.summary('report'))
 
 
 
