@@ -80,11 +80,12 @@ with st.expander("settings"):
 		df = pd.read_csv(uploaded_file, sep=";")
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
-		pivot_df = plot_diff_curve(df, kpi=kpi)
-		st.write(pivot_df)
-		graph = compute_causal_impact(pivot_df)
-		st.write(graph)
-		#compute_causal_impact(pivot_df)		
+		cc = plot_raw_curves(df, kpi)
+		st.write(cc)
+    	pivot_df = plot_diff_curve(df, kpi)
+    	st.write(pivot_df)
+    	final = compute_causal_impact(pivot_df)	
+    	st.write(final)	
 
 
 
