@@ -74,10 +74,10 @@ with st.expander("settings"):
 #image = Image.open(')
 	kpi = form.selectbox("KPI",("Clicks","Impressions","CTR","Position"))
 	MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
-	df = form.file_uploader("Upload your CSV file")
+	uploaded_file = form.file_uploader("Upload your CSV file")
 	submit = form.form_submit_button('Submit')
 	if submit:
-		df = input_to_df(df)
+		df = input_to_df(uploaded_file)
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
 		causal_impact = perform_test_analysis(df, kpi=kpi)
