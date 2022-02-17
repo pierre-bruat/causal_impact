@@ -74,7 +74,7 @@ with st.expander("settings"):
 #image = Image.open(')
 	#kpi = form.selectbox("KPI",("Clicks","Impressions","CTR","Position"))
 	#MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
-	uploaded_file = form.file_uploader("Upload your CSV file",type="csv")
+	uploaded_file = form.file_uploader("Upload your CSV file",type=["csv"])
 	submit = form.form_submit_button('Submit')
 	if submit:
 		if uploaded_file is not None:
