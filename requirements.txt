@@ -1,0 +1,9 @@
+streamlit
+pandas 
+bs4
+requests
+times
+causal
+causalimpact
+numpy
+causal_impact_def
