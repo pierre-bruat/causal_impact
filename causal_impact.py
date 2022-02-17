@@ -78,7 +78,6 @@ with st.expander("settings"):
 	submit = form.form_submit_button('Submit')
 	if submit:
 		df = input_to_df(uploaded_file)
-		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
 		causal_impact = perform_test_analysis(df, kpi=kpi)
 		st.write(causal_impact)
