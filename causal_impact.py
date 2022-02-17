@@ -80,8 +80,9 @@ with st.expander("settings"):
 		df = input_to_df(uploaded_file)
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
-		causal_impact = perform_test_analysis(df, kpi)
-		st.write(causal_impact)
+		st.write(df)
+		#causal_impact = perform_test_analysis(df, kpi)
+		#st.write(causal_impact)
 
 
 
