@@ -81,7 +81,8 @@ with st.expander("settings"):
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
 		causal_impact = perform_test_analysis(df, kpi)
-		st.write(causal_impact)
+		st.write(ci.summary(output='report'))
+
 
 
 
