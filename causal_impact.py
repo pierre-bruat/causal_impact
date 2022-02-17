@@ -75,8 +75,7 @@ def perform_test_analysis(df, kpi='impressions'):
 
 @st.cache
 
-
-st.title("Causal impact launcher 🤖")
+header = st.title("Causal impact launcher 🤖")
 form = st.form(key='my-form')
 comments.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
 #image = Image.open(')
