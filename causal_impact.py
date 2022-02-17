@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from causalimpact import CausalImpact
 
-@st.cache
 
 def input_to_df(input):
 	df = pd.read_csv(uploaded_file)
