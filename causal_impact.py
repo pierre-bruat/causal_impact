@@ -82,6 +82,8 @@ with st.expander("settings"):
 		df.rename(columns={"Date":"date"},inplace=True)
 		pivot_df = plot_diff_curve(df, kpi=kpi)
 		st.write(pivot_df)
+		graph = compute_causal_impact(pivot_df)
+		st.write(graph)
 		#compute_causal_impact(pivot_df)		
 
 
