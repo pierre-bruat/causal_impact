@@ -82,10 +82,9 @@ with st.expander("settings"):
 		cc = plot_raw_curves(df, kpi)
 		pivot_df = plot_diff_curve(df, kpi)
 		final = compute_causal_impact(pivot_df)	
-    	st.write(cc)
-    	st.write(pivot_df)
-    	st.write(final)	
-
+		st.write(cc)
+		st.write(pivot_df)
+		st.write(final)
 
 
 
