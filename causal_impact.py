@@ -79,7 +79,7 @@ with st.expander("settings"):
 		df = pd.read_csv(uploaded_file, sep=";")
 		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
 		df.rename(columns={"Date":"date"},inplace=True)
-		final = perform_test_analysis(df, kpi="Clicks")
+		final = perform_test_analysis(df, kpi=kpi)
 		st.write(final)
 
 
