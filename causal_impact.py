@@ -77,10 +77,10 @@ with st.expander("settings"):
 	uploaded_file = form.file_uploader("Upload your CSV file")
 	submit = form.form_submit_button('Submit')
 	if submit:
-		df = input_to_df(uploaded_file)
-		df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
-		df.rename(columns={"Date":"date"},inplace=True)
-		st.write(df)
+		#df = input_to_df(uploaded_file)
+		#df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
+		#df.rename(columns={"Date":"date"},inplace=True)
+		st.write(uploaded_file)
 		#causal_impact = perform_test_analysis(df, kpi)
 		#st.write(causal_impact)
 
