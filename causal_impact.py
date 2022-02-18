@@ -62,7 +62,7 @@ def compute_causal_impact(pivot_df):
 
     
     
-def perform_test_analysis(df, kpi='Clicks'):
+def perform_test_analysis(df, kpi='Clics'):
     plot_raw_curves(df, kpi)
     pivot_df = plot_diff_curve(df, kpi)
     compute_causal_impact(pivot_df)
