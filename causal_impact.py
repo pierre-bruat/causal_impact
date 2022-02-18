@@ -85,8 +85,8 @@ with st.expander("settings"):
 		st.pyplot(curves)
 		pivot_df = plot_diff_curve(df, kpi)
 		fig = compute_causal_impact(pivot_df)
-		st.pyplot(fig)
         st.write(report)
+        st.pyplot(fig)
 
 
 
