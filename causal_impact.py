@@ -59,8 +59,6 @@ def compute_causal_impact(pivot_df):
     print(ci.summary())
     print(ci.summary(output='report'))
     ci.plot()
-    return ci
-
 
     
     
