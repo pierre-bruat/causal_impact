@@ -56,7 +56,7 @@ def compute_causal_impact(pivot_df):
     post_period = [int(change_point) + 1, len(pivot_df.index) - 1]
 
     ci = CausalImpact(pivot_df[["difference"]].reset_index(drop=True), pre_period, post_period)
-    print(ci.summary())
+    report = print(ci.summary())
     report = (ci.summary(output='report'))
     ci.plot()
     return report
@@ -88,4 +88,5 @@ with st.expander("settings"):
             pivot_df = plot_diff_curve(df, kpi)
             fig = compute_causal_impact(pivot_df)
             st.pyplot(fig)
+            report = compute_causal_impact(pivot_df)
             st.write(report)
