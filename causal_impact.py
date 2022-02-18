@@ -87,8 +87,3 @@ with st.expander("settings"):
 		fig = compute_causal_impact(pivot_df)
         st.write(report)
         st.pyplot(fig)
-
-
-
-
-
