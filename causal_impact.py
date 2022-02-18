@@ -58,6 +58,7 @@ def compute_causal_impact(pivot_df):
     ci = CausalImpact(pivot_df[["difference"]].reset_index(drop=True), pre_period, post_period)
     print(ci.summary())
     report = print(ci.summary(output='report'))
+    return report
     ci.plot()
 
     
