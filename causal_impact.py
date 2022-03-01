@@ -81,7 +81,7 @@ with st.expander("settings"):
 	if submit:
             df = pd.read_csv(uploaded_file, sep=";")
             df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
-            df.rename(columns={"Date":"Date"},inplace=True)
+            df.rename(columns={"Date":"date"},inplace=True)
             curves = plot_raw_curves(df, kpi)
             st.pyplot(curves)
             pivot_df = plot_diff_curve(df, kpi)
