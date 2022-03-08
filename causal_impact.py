@@ -54,7 +54,6 @@ def compute_causal_impact(pivot_df):
     change_point = sum(pivot_df.index < pd.to_datetime(MEP_DATE)) - 1
     pre_period = [0, int(change_point)]
     post_period = [int(change_point) + 1, len(pivot_df.index) - 1]
-
     ci = CausalImpact(pivot_df[["difference"]].reset_index(drop=True), pre_period, post_period)
     ci.summary()
     ci.plot()
@@ -87,4 +86,5 @@ with st.expander("settings"):
             st.pyplot(curves)
             pivot_df = plot_diff_curve(df, kpi)
             fig = compute_causal_impact(pivot_df)
+            st.write(fig)
             st.pyplot(fig)
