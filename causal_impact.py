@@ -70,21 +70,20 @@ def perform_test_analysis(df, kpi='Clicks'):
 
 
 
-st.title("Causal impact launcher")
-with st.expander("settings"):
-	form = st.form(key='my-form')
-	st.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
-	kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Position"))
-	MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
-	uploaded_file = form.file_uploader("Upload your XLSX file")
-	submit = form.form_submit_button('Submit')
-	if submit:
-            df = pd.read_csv(uploaded_file, sep=";")
-            df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
-            df.rename(columns={"Date":"date"},inplace=True)
-            curves = plot_raw_curves(df, kpi)
-            st.pyplot(curves)
-            pivot_df = plot_diff_curve(df, kpi)
-            fig = compute_causal_impact(pivot_df)
-            st.write(fig)
-            st.pyplot(fig)
+st.title("Causal impact tool")
+form = st.form(key='my-form')
+#st.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
+kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Position"))
+MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
+uploaded_file = form.file_uploader("Upload your XLSX file")
+submit = form.form_submit_button('Submit')
+if submit:
+        df = pd.read_csv(uploaded_file, sep=";")
+        df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
+        df.rename(columns={"Date":"date"},inplace=True)
+        curves = plot_raw_curves(df, kpi)
+        st.pyplot(curves)
+        pivot_df = plot_diff_curve(df, kpi)
+        fig = compute_causal_impact(pivot_df)
+        st.write(fig)
+        st.pyplot(fig)
