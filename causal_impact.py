@@ -73,12 +73,13 @@ def perform_test_analysis(df, kpi='Clics'):
 st.title("Causal impact tool")
 form = st.form(key='my-form')
 #st.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
-kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Position"))
+kpi = form.selectbox("KPI",("Clics","Impressions","CTR"))
 MEP_DATE = form.text_input("ex: YYYY-MM-DD, please respect this format") 
 uploaded_file = form.file_uploader("Upload your file")
 submit = form.form_submit_button('Submit')
 if submit:
         df = pd.read_csv(uploaded_file, sep=";")
+        if "/" in df["Date"].tolist()[0]
         df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
         #df.rename(columns={"Date":"date"},inplace=True)
         curves = plot_raw_curves(df, kpi)
