@@ -19,7 +19,7 @@ def plot_raw_curves(df, kpi):
             inplace=True
         )
     df\
-        .groupby('groups')[kpi]\
+        .groupby('Groups')[kpi]\
                             .plot(legend=True)
                         
     plt.axvline(
