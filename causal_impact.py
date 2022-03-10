@@ -15,7 +15,7 @@ def plot_raw_curves(df, kpi):
     plt.figure(figsize=(15, 8))
     df\
         .set_index(
-            'date', 
+            'Date', 
             inplace=True
         )
     df\
