@@ -74,7 +74,7 @@ st.title("Causal impact tool")
 form = st.form(key='my-form')
 #st.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
 kpi = form.selectbox("KPI",("Clics","Impressions","CTR"))
-MEP_DATE = form.text_input("ex: YYYY-MM-DD, please respect this format") 
+MEP_DATE = form.text_input("ex: YYYY-MM-DD") 
 uploaded_file = form.file_uploader("Upload your CSV file")
 submit = form.form_submit_button('Submit')
 if submit:
