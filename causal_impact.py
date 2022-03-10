@@ -15,11 +15,11 @@ def plot_raw_curves(df, kpi):
     plt.figure(figsize=(15, 8))
     df\
         .set_index(
-            'Date', 
+            'date', 
             inplace=True
         )
     df\
-        .groupby('Groups')[kpi]\
+        .groupby('groups')[kpi]\
                             .plot(legend=True)
                         
     plt.axvline(
@@ -46,7 +46,7 @@ def plot_diff_curve(df, kpi):
         linestyle='--', 
         lw=2
     )
-    plt.title(f"Difference (Test - Control) of {kpi.capitalize()} between both groups")
+    plt.title(f"Difference (Test - Control) of {kpi.capitalize()} between both Groups")
     return pivot_df
 
 
@@ -59,11 +59,10 @@ def compute_causal_impact(pivot_df):
     ci.plot()
     #return ci
     #print(ci.summary(output='report'))
-    
 
     
     
-def perform_test_analysis(df, kpi='Clics'):
+def perform_test_analysis(df, kpi='Clicks'):
     plot_raw_curves(df, kpi)
     pivot_df = plot_diff_curve(df, kpi)
     compute_causal_impact(pivot_df)
@@ -71,19 +70,19 @@ def perform_test_analysis(df, kpi='Clics'):
 
 
 st.title("Causal impact tool")
-form = st.form(key='my-form')
-#st.markdown("What file do I need to upload ? Step #1: Export your data from Google Search for your test group and control group. ***** Step #2 Concatenate both files by respecting the following format CSV (;) with following header Date | Clicks | Impressions | CTR | Position | groups (CONTROL or TEST) ")
-kpi = form.selectbox("KPI",("Clics","Impressions","CTR"))
-MEP_DATE = form.text_input("ex: YYYY-MM-DD, please respect this format") 
-uploaded_file = form.file_uploader("Upload your file")
-submit = form.form_submit_button('Submit')
-if submit:
-        df = pd.read_csv(uploaded_file, sep=";")
-        df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
-        #df.rename(columns={"Date":"date"},inplace=True)
-        curves = plot_raw_curves(df, kpi)
-        st.pyplot(curves)
-        pivot_df = plot_diff_curve(df, kpi)
-        fig = compute_causal_impact(pivot_df)
-        st.write(fig)
-        st.pyplot(fig)
+	form = st.form(key='my-form')
+	kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Position"))
+	MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
+    st.markdown("Please import CSV (;) file containing 3 columns: Date (DD/MM/YYYY), Clics, Groups")
+	uploaded_file = form.file_uploader("Upload your XLSX file")
+	submit = form.form_submit_button('Submit')
+	if submit:
+            df = pd.read_csv(uploaded_file, sep=";")
+            df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
+            df.rename(columns={"Date":"date"},inplace=True)
+            curves = plot_raw_curves(df, kpi)
+            st.pyplot(curves)
+            pivot_df = plot_diff_curve(df, kpi)
+            fig = compute_causal_impact(pivot_df)
+            st.write(fig)
+            st.pyplot(fig)
