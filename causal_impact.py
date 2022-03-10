@@ -73,7 +73,7 @@ st.title("Causal impact tool")
 	form = st.form(key='my-form')
 	kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Position"))
 	MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
-    st.markdown("Please import CSV (;) file containing 3 columns: Date (DD/MM/YYYY), Clics, Groups")
+    Note = st.markdown("Please import CSV (;) file containing 3 columns: Date (DD/MM/YYYY), Clics, Groups")
 	uploaded_file = form.file_uploader("Upload your XLSX file")
 	submit = form.form_submit_button('Submit')
 	if submit:
