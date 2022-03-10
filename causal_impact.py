@@ -15,7 +15,7 @@ def plot_raw_curves(df, kpi):
     plt.figure(figsize=(15, 8))
     df\
         .set_index(
-            'date', 
+            'Date', 
             inplace=True
         )
     df\
@@ -35,7 +35,7 @@ def plot_diff_curve(df, kpi):
     plt.figure(figsize=(15, 8))
     pivot_df = df\
         .reset_index()\
-            .pivot_table(index="date", columns="groups", values=kpi, aggfunc=np.sum)
+            .pivot_table(index="Date", columns="Groups", values=kpi, aggfunc=np.sum)
     pivot_df["difference"] = pivot_df["TEST"] - pivot_df["CONTROL"]
     pivot_df = pivot_df.dropna()
     pivot_df['difference']\
@@ -63,7 +63,7 @@ def compute_causal_impact(pivot_df):
 
     
     
-def perform_test_analysis(df, kpi='Clicks'):
+def perform_test_analysis(df, kpi='Clics'):
     plot_raw_curves(df, kpi)
     pivot_df = plot_diff_curve(df, kpi)
     compute_causal_impact(pivot_df)
@@ -80,7 +80,7 @@ submit = form.form_submit_button('Submit')
 if submit:
         df = pd.read_csv(uploaded_file, sep=";")
         df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
-        df.rename(columns={"Date":"date"},inplace=True)
+        #df.rename(columns={"Date":"date"},inplace=True)
         curves = plot_raw_curves(df, kpi)
         st.pyplot(curves)
         pivot_df = plot_diff_curve(df, kpi)
