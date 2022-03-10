@@ -79,7 +79,6 @@ uploaded_file = form.file_uploader("Upload your file")
 submit = form.form_submit_button('Submit')
 if submit:
         df = pd.read_csv(uploaded_file, sep=";")
-        if "/" in df["Date"].tolist()[0]
         df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
         #df.rename(columns={"Date":"date"},inplace=True)
         curves = plot_raw_curves(df, kpi)
