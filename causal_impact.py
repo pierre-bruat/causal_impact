@@ -77,7 +77,7 @@ Note = form.markdown("⚠️ Please import CSV (;) file containing 3 columns: Da
 uploaded_file = form.file_uploader("Upload your XLSX file")
 submit = form.form_submit_button('Submit')
 if submit:
-    df = pd.read_csv(uploaded_file, sep=";")
+    df = pd.read_csv(uploaded_file)
     df["Date"]= pd.to_datetime(df["Date"],format= "%d/%m/%Y")
     #df.rename(columns={"Date":"date"},inplace=True)
     curves = plot_raw_curves(df, kpi)
