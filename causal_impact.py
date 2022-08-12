@@ -71,7 +71,7 @@ def perform_test_analysis(df, kpi='Clicks'):
 
 st.title("Causal impact tool")
 form = st.form(key='my-form')
-kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Position"))
+kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Average Position"))
 MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
 Note = form.markdown("⚠️ Please import CSV (;) file containing 3 columns: Date (DD/MM/YYYY), Clics, Groups ⚠️")
 uploaded_file = form.file_uploader("Upload your XLSX file")
