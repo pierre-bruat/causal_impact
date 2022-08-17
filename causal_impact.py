@@ -19,7 +19,7 @@ def plot_raw_curves(df, kpi):
             inplace=True
         )
     df\
-        .groupby('Groups')[kpi]\
+        .groupby('GROUP')[kpi]\
                             .plot(legend=True)
                         
     plt.axvline(
@@ -35,7 +35,7 @@ def plot_diff_curve(df, kpi):
     plt.figure(figsize=(15, 8))
     pivot_df = df\
         .reset_index()\
-            .pivot_table(index="Date", columns="Groups", values=kpi, aggfunc=np.sum)
+            .pivot_table(index="Date", columns="GROUP", values=kpi, aggfunc=np.sum)
     pivot_df["difference"] = pivot_df["TEST"] - pivot_df["CONTROL"]
     pivot_df = pivot_df.dropna()
     pivot_df['difference']\
