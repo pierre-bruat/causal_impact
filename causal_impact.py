@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from causalimpact import CausalImpact
 import warnings
-
+import os
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def input_to_df(input):
@@ -68,6 +68,7 @@ def perform_test_analysis(df, kpi='Clicks'):
     pivot_df = plot_diff_curve(df, kpi)
     compute_causal_impact(pivot_df)
 
+os.environ
 
 st.title("Causal impact tool")
 form = st.form(key='my-form')
@@ -82,7 +83,7 @@ Note = form.markdown("""
      * KPI : Clics or Average Position or Impressions or CTR
      * GROUP : CONTROL & TEST
     """)
-uploaded_file = form.file_uploader("Upload your XLSX file")
+uploaded_file = form.file_uploader("Upload your CSV file")
 submit = form.form_submit_button('Submit')
 if submit:
     df = pd.read_csv(uploaded_file)
