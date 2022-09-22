@@ -78,7 +78,7 @@ Note = form.markdown("""**Requirements:**
     *Date DD/MM/YYYY 
     *KPI : Clics or Average Position or Impressions or CTR
     *GROUP : CONTROL & TEST
-    """
+    """)
 uploaded_file = form.file_uploader("Upload your XLSX file")
 submit = form.form_submit_button('Submit')
 if submit:
