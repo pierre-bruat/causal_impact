@@ -68,7 +68,6 @@ def perform_test_analysis(df, kpi='Clicks'):
     compute_causal_impact(pivot_df)
 
 
-
 st.title("Causal impact tool")
 form = st.form(key='my-form')
 form.subheader("Step #1 : Get the data from GSC 👉 [link](https://datastudio.google.com/u/0/reporting/b364a278-39b7-42d1-911f-16c2d30fc92e/page/p_2x5p5qjjoc/edit)")
@@ -87,6 +86,7 @@ submit = form.form_submit_button('Submit')
 if submit:
     df = pd.read_csv(uploaded_file)
     df["Date"]= pd.to_datetime(df["Date"],format= "%Y-%m-%d")
+    warnings.filterwarnings("ignore")
     curves = plot_raw_curves(df, kpi)
     st.pyplot(curves)
     pivot_df = plot_diff_curve(df, kpi)
