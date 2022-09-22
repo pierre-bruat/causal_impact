@@ -86,7 +86,7 @@ uploaded_file = form.file_uploader("Upload your XLSX file")
 submit = form.form_submit_button('Submit')
 if submit:
     df = pd.read_csv(uploaded_file)
-    df["Date"]= pd.to_datetime(df["Date"],format= "%Y/%m/%d")
+    df["Date"]= pd.to_datetime(df["Date"],format= "%Y-%m-%d")
     curves = plot_raw_curves(df, kpi)
     st.pyplot(curves)
     pivot_df = plot_diff_curve(df, kpi)
