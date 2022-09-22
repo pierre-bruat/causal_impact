@@ -71,8 +71,8 @@ def perform_test_analysis(df, kpi='Clicks'):
 
 st.title("Causal impact tool")
 form = st.form(key='my-form')
-st.write("Step #1 : Get the data from GSC 👉 [link](https://datastudio.google.com/u/0/reporting/b364a278-39b7-42d1-911f-16c2d30fc92e/page/p_2x5p5qjjoc/edit)")
-st.write("Step #2 : Complete information 👇")
+form.write("Step #1 : Get the data from GSC 👉 [link](https://datastudio.google.com/u/0/reporting/b364a278-39b7-42d1-911f-16c2d30fc92e/page/p_2x5p5qjjoc/edit)")
+form.write("Step #2 : Complete information 👇")
 kpi = form.selectbox("KPI",("Clics","Impressions","CTR","Average Position"))
 MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format") 
 Note = form.markdown("""
