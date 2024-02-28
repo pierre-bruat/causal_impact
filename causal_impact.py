@@ -68,7 +68,7 @@ def perform_test_analysis(df, kpi='Clicks'):
     pivot_df = plot_diff_curve(df, kpi)
     compute_causal_impact(pivot_df)
 
-os.environ
+#os.environ
 
 st.title("Causal impact tool")
 form = st.form(key='my-form')
@@ -79,7 +79,7 @@ MEP_DATE = form.text_input("ex: 2022-02-09, please respect this format")
 Note = form.markdown("""
     **Requirements:** 
      * CSV file
-     * Date DD/MM/YYYY 
+     * Date YYYY-MM-DD 
      * KPI : Clics or Average Position or Impressions or CTR
      * GROUP : CONTROL & TEST
     """)
